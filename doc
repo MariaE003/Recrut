@@ -1,0 +1,5 @@
+<!-- Route::get('/user/{id?}',function ($id=1){
+     return "je suis l'utilisateur N-$id";
+})->name('profil'); -->
+
+<a href="{{route('profil')}}">click here</a>
