@@ -8,6 +8,18 @@
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
+        <!-- bio -->
+        <div>
+            <x-input-label for="bio" :value="__('Bio')" />
+            <textarea id="bio" class="block mt-1 w-full" type="text" name="bio" :value="old('bio')" required autofocus autocomplete="bio" ></textarea>
+            <x-input-error :messages="$errors->get('bio')" class="mt-2" />
+        </div>
+        <!-- photo -->
+        <div>
+            <x-input-label for="photo" :value="__('Photo')" />
+            <x-text-input id="photo" class="block mt-1 w-full" type="url" name="photo" :value="old('photo')" required autofocus autocomplete="photo" />
+            <x-input-error :messages="$errors->get('photo')" class="mt-2" />
+        </div>
 
         <!-- Email Address -->
         <div class="mt-4">
