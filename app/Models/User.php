@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'role',
         'name',
         'email',
         'bio',
@@ -34,6 +35,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    public function profil(){
+        return $this->hasOne(Profil::class);
+    }
 
     /**
      * Get the attributes that should be cast.
