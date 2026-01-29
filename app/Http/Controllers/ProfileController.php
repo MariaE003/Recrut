@@ -23,7 +23,45 @@ class ProfileController extends Controller
         return view('profile.edit',["user" => $user]);
     }
 
-    
+    public function update(Request $request){
+        $valide=$request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'specialite' => 'required',
+            'bio' => 'required',
+            'lieu' => 'required',
+            'password' => ['nullable', Password::defaults()],
+            'ancienPassword' => ['required_with:password'],
+            'photo'=>['nullable','url']
+            ]);
+            
+            $user=auth()->user();
+            
+            // $pw=User::where('id',auth()->user()->id)->where('password',$request->password);
+            // if (!Hash::check($request->ancienPassword,$user->password)) {
+            //     return back()->withErrors(['password'=>'le mot de pass est incorrect']);
+            // }
+            // $user->update([
+
+            if (!empty($request->password)) {
+                if (!Hash::check($request->ancienPassword,$user->password)) {
+                return back()->withErrors(['password'=>'le mot de pass est incorrect']);
+            }
+                $user->password=Hash::make($request->password);
+            }
+            $user->name=$request->name;
+            $user->email=$request->email;
+            $user->specialite=$request->specialite;
+            $user->bio=$request->bio;
+            $user->lieu=$request->lieu;
+            $user->photo=$request->photo;
+            
+            // ]);
+
+        $user->save();
+        return redirect()->route('profile.edit');
+
+    }
     // public function edit(Request $request): View
     // {
     //     return view('profile.edit', [
