@@ -2,6 +2,18 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <!-- role -->
+        <div>
+            <x-input-label for="role" :value="__('Role')" />
+            <select id="role" name="role" class="block mt-1 w-full" required>
+                <option value="">-- Choisir un rôle --</option>
+                <option value="chercheur">Chercheur </option>
+                <option value="recruteur">Recruteur </option>
+            </select>
+            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+        </div>
+
+
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -26,6 +38,13 @@
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+        <!-- specialite -->
+
+        <div class="mt-4">
+            <x-input-label for="specialite" :value="__('Specialite')" />
+            <x-text-input id="specialite" class="block mt-1 w-full" type="text" name="specialite" :value="old('specialite')" required  />
+            <x-input-error :messages="$errors->get('specialite')" class="mt-2" />
         </div>
 
         <!-- Password -->

@@ -24,6 +24,8 @@ class User extends Authenticatable
         'bio',
         'photo',
         'password',
+        'specialite',
+        'lieu'
     ];
 
     /**
@@ -35,14 +37,19 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    public function profil(){
-        return $this->hasOne(Profil::class);
+
+    public function sender(){
+        return $this->hasMany(Amis::class,'sender_id');
+    }
+    public function reciever(){
+        return $this->hasMany(Amis::class,'reciever_id');
     }
 
     /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
+     * 
      */
     protected function casts(): array
     {

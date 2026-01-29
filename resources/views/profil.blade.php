@@ -7,7 +7,7 @@
         
         
         <div class="flex-1">
-            <form action="{{route('profile.update')}}" method="POST" enctype="multipart/form-data" class="space-y-8">
+            <form action="profile.update" method="POST" enctype="multipart/form-data" class="space-y-8">
                 @csrf
                 <!-- Section 1: Identité -->
                 <div class="bg-white rounded-[2.5rem] p-8 shadow-xl shadow-slate-200/50 border border-slate-100">
@@ -35,15 +35,11 @@
                             </div>
                             <div class="space-y-2">
                                 <label class="text-sm font-bold text-slate-700 ml-1">Photo</label>
-                                <input type="url" name="photo" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium text-slate-600 shadow-sm" placeholder="https://i.pinimg.com/1200.jpg"  value="{{$user->photo}}">
+                                <input type="url" name="photo" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium text-slate-600 shadow-sm" placeholder="https://i.pinimg.com/1200.jpg" name="photo">
                             </div>
                             <div class="space-y-2">
-                                <label class="text-sm font-bold text-slate-700 ml-1">Lieu</label>
-                                <input type="text" name="lieu" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium text-slate-600 shadow-sm" placeholder="casablanca"  value="{{$user->lieu}}">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold text-slate-700 ml-1">Spécialité </label>
-                                <input type="text" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium text-slate-600 shadow-sm" placeholder="Ex: Développement Web" name="specialite" value="{{$user->specialite}}">
+                                <label class="text-sm font-bold text-slate-700 ml-1">Spécialité / Entreprise</label>
+                                <input type="text" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium text-slate-600 shadow-sm" placeholder="Ex: Développement Web" name="specialite">
                             </div>
                         </div>
 
@@ -63,16 +59,10 @@
                     </h2>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        
-                        @error('password')
-                            <div class="text-red-500 text-sm">{{ $message }}</div>
-                        @enderror
-
-                        <div class="space-y-2">
+                        <!-- <div class="space-y-2">
                             <label class="text-sm font-bold text-slate-700 ml-1">Ancien mot de passe</label>
-                            <input name="ancienPassword" type="password" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium shadow-sm">
-                        </div>
-                        
+                            <input type="password" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium shadow-sm">
+                        </div> -->
                         <div class="space-y-2">
                             <label class="text-sm font-bold text-slate-700 ml-1">Nouveau mot de passe</label>
                             <input type="password" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium shadow-sm" name="password">

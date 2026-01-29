@@ -34,13 +34,16 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'bio',
             'photo',
+            'specialite',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
+            'role' => $request->role,
             'email' => $request->email,
             'bio'=>$request->bio,
+            'specialite'=>$request->specialite,
             'photo'=>$request->photo,
             'password' => Hash::make($request->password),
         ]);
@@ -49,6 +52,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        return redirect(route('profile.edit', absolute: false));
     }
 }

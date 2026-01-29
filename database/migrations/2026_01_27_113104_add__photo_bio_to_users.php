@@ -15,6 +15,9 @@ return new class extends Migration
             //
             $table->text('bio')->nullable();
             $table->string('photo')->nullable();
+            $table->string('specialite')->nullable();
+            $table->string('lieu')->nullable();
+
         });
     }
 
