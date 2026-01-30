@@ -18,7 +18,7 @@ Route::get('/profile/edit',[ProfileController::class,'show'])->name('profile.edi
 Route::post('/profile',[ProfileController::class,'update'])->name('profile.update');
 
 
-// Route::get('/amis', [AmisController::class, ''])->name('amis.search');
+Route::get('/amis', [AmisController::class, 'findUserById'])->name('detail');
 
 
 

@@ -31,8 +31,8 @@ class AmisController extends Controller
     }
 
     public function findUserById($id){
-        $user=User::where('id',$id)->get();
-        return view('detail',compact($user));
+        $ami=User::where('id',$id)->get();
+        return view('detail',compact('ami'));
     }
 
     // public function AjouterAmis($receiver){

@@ -112,14 +112,18 @@
 
                             <!-- Actions -->
                             <div class="flex gap-2">
-                                <button class="flex-1 py-2 bg-indigo-600 text-white rounded-lg 
+                                <a href='{{$ami->id}}' class="flex-1 py-2 bg-slate-100 text-slate-600 rounded-lg 
+                                               text-xs font-semibold hover:bg-slate-200 transition">
+                                    Detail
+                                </a>
+                                <!-- <button class="flex-1 py-2 bg-indigo-600 text-white rounded-lg 
                                                text-xs font-semibold hover:bg-indigo-700 transition">
                                     Followed
                                 </button>
                                 <button class="flex-1 py-2 bg-slate-100 text-slate-600 rounded-lg 
                                                text-xs font-semibold hover:bg-slate-200 transition">
                                     Unfollow
-                                </button>
+                                </button> -->
                             </div>
 
                         </div>
