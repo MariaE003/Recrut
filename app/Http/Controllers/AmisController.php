@@ -19,16 +19,14 @@ class AmisController extends Controller
         } 
     }
     // echercher un utilisateur par : Nom, Spécialité
-    public function search(Reauest $reauest){
+    public function search(Request $request){
         if($request->name){
-            $user=User::where('name',$request->name);
-            return view('home',compact('user'));
+            $user=User::where('name',$request->name)->get();
         }
         if ($request->specialite) {
-            $user=User::where('specialite',$request->specialite);
-            return view('home',compact('user'));
+            $user=User::where('specialite',$request->specialite)->get();
         }
-
+        return view('home',compact('user'));
 
     }
 
