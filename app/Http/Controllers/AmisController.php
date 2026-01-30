@@ -18,5 +18,40 @@ class AmisController extends Controller
         return view('home',compact('amis'));        
         } 
     }
-    
+    // echercher un utilisateur par : Nom, Spécialité
+    public function search(Reauest $reauest){
+        if($request->name){
+            $user=User::where('name',$request->name);
+            return view('home',compact('user'));
+        }
+        if ($request->specialite) {
+            $user=User::where('specialite',$request->specialite);
+            return view('home',compact('user'));
+        }
+
+
+    }
+
+    public function findUserById($id){
+        $user=User::where('id',$id)->get();
+        return view('detail',compact($user));
+    }
+
+    // public function AjouterAmis($receiver){
+    //     Amis::create([
+    //         'sender_id'=> Auth::id(),
+    //         'receiver_id'=>$receiver,
+    //         'status'=>'en_attente',
+    //     ]);
+    //     return back();
+    // }
+    // public function accepterAmis(Request $request,$id){
+    //     Amis::where('id',$id)->update(['status'=>'accepter']);
+    //     return redirect('/');
+    //     // return redirect()->route('nameRoute');
+    // }
+    // public function refuseAmis($id){
+    //     Amis::where('id',$id)->update(['status'=>'refuse']);
+    //     return redirect('/');
+    // }
 }

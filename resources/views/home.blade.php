@@ -8,11 +8,29 @@
             <!-- COLONNE CENTRALE : Flux de profils -->
             <div class="flex-1 space-y-8">
                 <!-- Filtres style "Tabs" de l'image -->
-                <div class="bg-white p-2 rounded-[2rem] shadow-sm flex gap-2">
+                <!-- <div class="bg-white p-2 rounded-[2rem] shadow-sm flex gap-2">
                     <button class="flex-1 py-4 px-2 text-center text-sm font-bold text-slate-500 hover:bg-slate-50 rounded-[1.5rem] transition-all">52,844 Followers</button>
                     <button class="flex-1 py-4 px-2 text-center text-sm font-bold bg-indigo-600 text-white shadow-lg shadow-indigo-100 rounded-[1.5rem] transition-all">2,564 Following</button>
                     <button class="flex-1 py-4 px-2 text-center text-sm font-bold text-slate-500 hover:bg-slate-50 rounded-[1.5rem] transition-all">Suggestions</button>
-                </div>
+                </div> -->
+                <form method="GET" action="" class="relative mb-6">
+                    <span class="absolute inset-y-0 left-4 flex items-center text-slate-400">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </span>
+
+                    <input
+                        type="text"
+                        name="search"
+                        value="{{ request('search') }}"
+                        placeholder="Rechercher par nom, spécialité..."
+                        class="w-full bg-slate-50 border-none rounded-xl py-2 pl-10 pr-4 text-sm
+                               focus:ring-1 focus:ring-indigo-500"
+                    >
+                </form>
+
 
                 <!-- Grille des cartes -->
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -60,7 +78,6 @@
     </div>
 
 </div>
-
                     @endforeach
                 </div>
             </div>
