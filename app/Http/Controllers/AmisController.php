@@ -10,26 +10,30 @@ use Illuminate\Http\Request;
 
 class AmisController extends Controller
 {
-    public function show(){
+    public function show(Request $request){
         $id=auth()->user()->id;
+        $user=null;
         if ($id) {
             // $amis=User::all();//li mkininch fi table amis
         $amis=User::where('id',"!=",$id)->get();//li mkininch fi table amis + machi howa
-        return view('home',compact('amis'));        
+        if($request->search){
+            $user=User::where('name',$request->search)->orWhere('specialite',$request->search)->get();
+        }
+        return view('home',compact('user','amis'));        
         } 
     }
     // echercher un utilisateur par : Nom, Spécialité
-    public function search(Request $request){
-        if($request->name){
-            $user=User::where('name',$request->name)->get();
-        }
-        if ($request->specialite) {
-            $user=User::where('specialite',$request->specialite)->get();
-        }
-        var_dump($user);
-        return view('home',compact('user'));
+    // public function search(Request $request){
+    //     if($request->name){
+    //         $user=User::where('name',$request->name)->get();
+    //     }
+    //     if ($request->specialite) {
+    //         $user=User::where('specialite',$request->specialite)->get();
+    //     }
+    //     var_dump($user);
+    //     return view('home',compact('user'));
 
-    }
+    // }
 
     public function findUserById($id){
         $ami=User::where('id',$id)->get();
