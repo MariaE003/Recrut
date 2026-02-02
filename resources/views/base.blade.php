@@ -45,6 +45,13 @@
                                 Register
                             </a>
                         @endguest
+                        @auth
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button class="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition-colors">Logout</button>
+                        </form>
+
+                        @endauth
                 </nav>
 
         <!-- User -->

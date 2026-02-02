@@ -6,7 +6,7 @@ use App\Http\Controllers\AmisController;
 
 Route::get('/home', [AmisController::class,'show'])->name('home');
 
-Route::get('/home/search', [AmisController::class, 'search'])->name('search');
+// Route::post('/home', [AmisController::class, 'search'])->name('search');
 
 Route::get('/', function () {
     return view('auth.register');
@@ -18,9 +18,10 @@ Route::get('/profile/edit',[ProfileController::class,'show'])->name('profile.edi
 Route::post('/profile',[ProfileController::class,'update'])->name('profile.update');
 
 
-Route::get('/detail', [AmisController::class, 'findUserById'])->name('detail');
+Route::get('/detail/{id}', [AmisController::class, 'findUserById'])->name('detail');
 
-
+// logout
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 
 

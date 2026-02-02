@@ -105,5 +105,4 @@ class ProfileController extends Controller
 
     //     return Redirect::to('/');
     // }
-    // upload img
 }

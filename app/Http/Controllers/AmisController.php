@@ -26,6 +26,7 @@ class AmisController extends Controller
         if ($request->specialite) {
             $user=User::where('specialite',$request->specialite)->get();
         }
+        var_dump($user);
         return view('home',compact('user'));
 
     }

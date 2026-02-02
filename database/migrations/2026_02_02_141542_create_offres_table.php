@@ -11,11 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('offres', function (Blueprint $table) {
             $table->id();
+            $table->string('entrepriseName');
+            $table->string('typeContrat');
+            $table->string('titre');
+            $table->string('description');
+            $table->string('photo');
+            $table->boolean('cloturer');
+
+            // qui creer l'offre
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('role')->default('chercheur');
             $table->timestamps();
         });
     }
@@ -25,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('offres');
     }
 };
