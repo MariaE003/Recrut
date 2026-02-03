@@ -17,4 +17,8 @@ class Formation extends Model
         'ecole',
         'annee',
     ];
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }

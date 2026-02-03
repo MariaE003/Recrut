@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AmisController;
+use  App\Http\Controllers\ChercheurController;
 
 Route::get('/home', [AmisController::class,'show'])->name('home');
 
@@ -13,20 +14,27 @@ Route::get('/', function () {
 })->middleware('guest');
 
 
+// profil user
 Route::get('/profile/edit',[ProfileController::class,'show'])->name('profile.edit');
-
-Route::get('/profil',function () {
-    return View('Profil');
-})->name('profil');
-
 
 Route::post('/profile',[ProfileController::class,'update'])->name('profile.update');
 
-
+// detail profil
 Route::get('/detail/{id}', [AmisController::class, 'findUserById'])->name('detail');
-
 // logout
 Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
+
+// profil chercheur
+Route::post('/chercheur',[ChercheurController::class,'createProfil'])->name('create.profile');
+Route::get('/profil',function () { return View('Profil');})->name('profil');
+
+//offre
+Route::get('/detailoffre/{}',[ChercheurController::class,'detaillOffre']);
+// Route::post('postuler',[ChercheurController::class,'postulerOffre']);
+Route::get('chercherOffre/',[ChercheurController::class,'chercheOffre']);
+
+// 
 
 
 

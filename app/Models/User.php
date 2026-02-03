@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
+use App\Models\Chercheur;
+
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -45,6 +47,12 @@ class User extends Authenticatable
     public function reciever(){
         return $this->hasMany(Amis::class,'reciever_id');
     }
+
+    // 
+    public function chercheur(){return $this->hasOne(Chercheur::class);}
+    public function experiences(){return $this->hasMany(Experience::class);}
+    public function formations(){return $this->hasMany(Formation::class);}
+    public function competences(){return $this->hasMany(Competence::class);}
 
     /**
      * Get the attributes that should be cast.

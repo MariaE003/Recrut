@@ -21,7 +21,7 @@
                     <form action="" method="POST" enctype="multipart/form-data" class="space-y-12">
                         @csrf
                         
-                        <!-- 1. IDENTITÉ ET PHOTO -->
+                        <!-- IDENTITÉ ET PHOTO -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                             <div class="flex flex-col items-center gap-4">
                                 <div class="relative group">
@@ -57,7 +57,7 @@
 
                         <hr class="border-slate-100">
 
-                        <!-- 2. COMPÉTENCES (SKILLS) -->
+                        <!-- COMPÉTENCES (SKILLS) -->
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
                                 <h2 class="text-sm font-bold uppercase tracking-widest text-indigo-600 flex items-center gap-2">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
 
-                        <!-- 3. EXPÉRIENCES -->
+                        <!-- EXPÉRIENCES -->
                         <div class="space-y-6">
                             <div class="flex items-center justify-between">
                                 <h2 class="text-sm font-bold uppercase tracking-widest text-indigo-600 flex items-center gap-2">
@@ -120,7 +120,7 @@
                             </div>
                         </div>
 
-                        <!-- 4. FORMATIONS -->
+                        <!-- FORMATIONS -->
                         <div class="space-y-6">
                             <div class="flex items-center justify-between">
                                 <h2 class="text-sm font-bold uppercase tracking-widest text-indigo-600 flex items-center gap-2">

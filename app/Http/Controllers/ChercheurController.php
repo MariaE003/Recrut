@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Competence;
 use App\Models\Experience;
 use App\Models\Chercheur;
+use App\Models\Formation;
 use Illuminate\Http\Request;
 
 class ChercheurController extends Controller
@@ -13,7 +14,8 @@ class ChercheurController extends Controller
     public function createProfil(Request $request){
         // $request->validate([
         // '',
-        // ])
+        // ]);
+
         Chercheur::create([
             'titre'=>$request->titre,
             'bio'=>$request->bio,
@@ -30,7 +32,7 @@ class ChercheurController extends Controller
             'duree'=>$request->duree,
             // 'user_id',
         ]);
-        
+
         Experience::create([
             'poste'=>$request->poste,
             'entreprise'=>$request->entreprise,
@@ -38,9 +40,16 @@ class ChercheurController extends Controller
             // 'user_id',
         ]);
 
+        Formation::create([
+            'diplome'=>$request->diplome,
+            'ecole'=>$request->ecole,
+            'annee'=>$request->annee,
+        ]);
+
     }
-    // public function detaillOffre(){}
+
+
     // public function postulerOffre(){}
-    // public function rechercheOffre(){}
+
 
 }
