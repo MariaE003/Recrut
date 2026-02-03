@@ -8,13 +8,14 @@ use Spatie\Permission\Traits\HasRoles;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Competence extends Model
+class Chercheur extends Model
 {
     
     use HasFactory, Notifiable,HasRoles;
 
      protected $fillable = [
          'titre',
+         'bio',
          'user_id',
     ];
 }

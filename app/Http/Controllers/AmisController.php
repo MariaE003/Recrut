@@ -17,7 +17,9 @@ class AmisController extends Controller
             // $amis=User::all();//li mkininch fi table amis
         $amis=User::where('id',"!=",$id)->get();//li mkininch fi table amis + machi howa
         if($request->search){
-            $user=User::where('name',$request->search)->orWhere('specialite',$request->search)->get();
+            $user=User::where('name',$request->search)
+            // ->orWhere('specialite',$request->search)
+            ->get();
         }
         return view('home',compact('user','amis'));        
         } 

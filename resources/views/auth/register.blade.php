@@ -20,12 +20,7 @@
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
-        <!-- bio -->
-        <div>
-            <x-input-label for="bio" :value="__('Bio')" />
-            <textarea id="bio" class="block mt-1 w-full" type="text" name="bio" :value="old('bio')" required autofocus autocomplete="bio" ></textarea>
-            <x-input-error :messages="$errors->get('bio')" class="mt-2" />
-        </div>
+        
         <!-- photo -->
         <div>
             <x-input-label for="photo" :value="__('Photo')" />
@@ -39,13 +34,7 @@
             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
-        <!-- specialite -->
-
-        <div class="mt-4">
-            <x-input-label for="specialite" :value="__('Specialite')" />
-            <x-text-input id="specialite" class="block mt-1 w-full" type="text" name="specialite" :value="old('specialite')" required  />
-            <x-input-error :messages="$errors->get('specialite')" class="mt-2" />
-        </div>
+        
 
         <!-- Password -->
         <div class="mt-4">

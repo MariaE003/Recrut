@@ -8,20 +8,13 @@ use Spatie\Permission\Traits\HasRoles;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profil extends Model
+class Formation extends Model
 {
-    //
     use HasFactory, Notifiable,HasRoles;
 
      protected $fillable = [
-        // 'role',
-        'name',
-        'email',
-        // 'bio',
-        'photo',
-        'password',
-        // 'specialite',
-        'lieu'
+        'diplome',
+        'ecole',
+        'annee',
     ];
-
 }

@@ -9,13 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-
     public function up(): void
     {
-        Schema::create('chercheurs', function (Blueprint $table) {
+        Schema::create('formations', function (Blueprint $table) {
             $table->id();
-            $table->string('titre');
-            $table->text('bio');
+            $table->string('diplome');
+            $table->string('ecole');
+            $table->integer('annee');
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
@@ -27,9 +27,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    
     public function down(): void
     {
-        Schema::dropIfExists('chercheurs');
+        Schema::dropIfExists('formations');
     }
 };

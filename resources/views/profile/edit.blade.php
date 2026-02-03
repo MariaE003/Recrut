@@ -40,17 +40,9 @@
                                 <label class="text-sm font-bold text-slate-700 ml-1">Lieu</label>
                                 <input type="text" name="lieu" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium text-slate-600 shadow-sm" placeholder="casablanca"  value="{{$user->lieu}}">
                             </div>
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold text-slate-700 ml-1">Spécialité </label>
-                                <input type="text" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium text-slate-600 shadow-sm" placeholder="Ex: Développement Web" name="specialite" value="{{$user->specialite}}">
-                            </div>
+                            
                         </div>
 
-                        <!-- Bio -->
-                        <div class="space-y-2">
-                            <label class="text-sm font-bold text-slate-700 ml-1">Biographie</label>
-                            <textarea rows="4" class="w-full bg-slate-50 border-none rounded-2xl p-4 focus:ring-2 focus:ring-indigo-500 transition-all font-medium text-slate-600 shadow-sm" placeholder="Décrivez votre parcours..." name="bio">{{ $user->bio }}</textarea>
-                        </div>
                     </div>
                 </div>
 

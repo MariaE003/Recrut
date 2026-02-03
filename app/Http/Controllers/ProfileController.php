@@ -27,8 +27,8 @@ class ProfileController extends Controller
         $valide=$request->validate([
             'name' => 'required',
             'email' => 'required',
-            'specialite' => 'required',
-            'bio' => 'required',
+            // 'specialite' => 'required',
+            // 'bio' => 'required',
             'lieu' => 'required',
             'password' => ['nullable', Password::defaults()],
             'ancienPassword' => ['required_with:password'],
@@ -51,8 +51,8 @@ class ProfileController extends Controller
             }
             $user->name=$request->name;
             $user->email=$request->email;
-            $user->specialite=$request->specialite;
-            $user->bio=$request->bio;
+            // $user->specialite=$request->specialite;
+            // $user->bio=$request->bio;
             $user->lieu=$request->lieu;
             $user->photo=$request->photo;
             
