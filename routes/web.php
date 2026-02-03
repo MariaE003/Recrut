@@ -26,8 +26,8 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name
 
 
 // profil chercheur
+Route::get('/profil',[ChercheurController::class,'getName'])->name('profil');
 Route::post('/chercheur',[ChercheurController::class,'createProfil'])->name('create.profile');
-Route::get('/profil',function () { return View('Profil');})->name('profil');
 
 //offre
 Route::get('/detailoffre/{}',[ChercheurController::class,'detaillOffre']);
