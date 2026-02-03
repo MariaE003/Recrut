@@ -9,9 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
     public function up(): void
     {
-        Schema::create('profils', function (Blueprint $table) {
+        Schema::create('chercheurs', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
 
@@ -25,8 +26,9 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
+    
     public function down(): void
     {
-        Schema::dropIfExists('profils');
+        Schema::dropIfExists('chercheurs');
     }
 };

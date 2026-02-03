@@ -28,7 +28,7 @@
         <!-- Links -->
         <div class="hidden md:flex items-center gap-8">
             <a href="{{route('home')}}" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition-colors">Accueil</a>
-            <a href="#" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition-colors">Rechercher</a>
+            <a href="{{route('profil')}}" class="text-sm font-semibold text-slate-600 hover:text-indigo-600 transition-colors">Profil Prof</a>
         </div>
         <!-- login signup -->
                 <nav class="flex items-center justify-end gap-4">

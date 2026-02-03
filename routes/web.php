@@ -15,6 +15,11 @@ Route::get('/', function () {
 
 Route::get('/profile/edit',[ProfileController::class,'show'])->name('profile.edit');
 
+Route::get('/profil',function () {
+    return View('Profil');
+})->name('profil');
+
+
 Route::post('/profile',[ProfileController::class,'update'])->name('profile.update');
 
 

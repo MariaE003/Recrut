@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedInteger('user_id');
             // id des recruteurs
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('offre_id')->references('id')->on('profils')->onDelete('cascade');
+            $table->foreign('offre_id')->references('id')->on('offres')->onDelete('cascade');
 
             $table->timestamps();
         });
