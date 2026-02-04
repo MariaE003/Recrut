@@ -9,6 +9,10 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
 use App\Models\Chercheur;
+use App\Models\Offre;
+use App\Models\Competence;
+use App\Models\Formation;
+use App\Models\Experience;
 
 class User extends Authenticatable
 {
@@ -50,9 +54,17 @@ class User extends Authenticatable
 
     // 
     public function chercheur(){return $this->hasOne(Chercheur::class);}
+
     public function experiences(){return $this->hasMany(Experience::class);}
+
     public function formations(){return $this->hasMany(Formation::class);}
+
     public function competences(){return $this->hasMany(Competence::class);}
+
+    
+    public function createurOffres(){return $this->hasMany(Offre::class,'user_id'); }
+    
+    public function offresPostule(){return $this->belongsToMany(Offre::class,'offre_users'); }
 
     /**
      * Get the attributes that should be cast.

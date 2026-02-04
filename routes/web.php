@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AmisController;
 use  App\Http\Controllers\ChercheurController;
+use  App\Http\Controllers\RecruteurController;
+use  App\Http\Controllers\OffreController;
 
 Route::get('/home', [AmisController::class,'show'])->name('home');
 
@@ -35,7 +37,13 @@ Route::get('/detailoffre/{}',[ChercheurController::class,'detaillOffre']);
 Route::get('chercherOffre/',[ChercheurController::class,'chercheOffre']);
 
 // 
-
+// creer offre
+Route::get('offrePage',function(){
+    return view('createoffre');
+})->name('offresPage');
+Route::post('offre-create',[RecruteurController::class,'createOffre'])->name('create.offre');
+// affiche offre
+Route::get('offres-view',[OffreController::class,'affichierOffres'])->name('offres');
 
 
 

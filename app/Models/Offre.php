@@ -9,6 +9,9 @@ use Spatie\Permission\Traits\HasRoles;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\User;
+
+
 
 class Offre extends Model
 {
@@ -21,7 +24,13 @@ class Offre extends Model
         'titre',
         'description',
         'photo',
-        'cloture',
+        'cloturer',
         'user_id'
     ];
+    public function recruteur(){
+        return $this->belongsTo(User::class,'user_id');
+    } 
+    public function postulant(){
+        return $this->belongsToMany(User::class,'offre_users');
+    }
 }

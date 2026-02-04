@@ -30,32 +30,58 @@ class ChercheurController extends Controller
         ]);
 
         $user=auth()->user();
-
-        $user->chercheur()->create([
-            'titre'=>$request->titre,
-            'bio'=>$request->bio,
-        ]);
-
+        // chercheur
+        if($user->chercheur){
+            $user->chercheur()->update([
+                'titre'=>$request->titre,
+                'bio'=>$request->bio,
+            ]);
+        }else{
+            $user->chercheur()->create([
+                'titre'=>$request->titre,
+                'bio'=>$request->bio,
+            ]);
+        }
+        // competences
+        // je doit cheker competence ici si deja exist + sinon creer new competence
         foreach($request->competences as $competence){
+            if ($competence) {
             $user->competences()->create([
                 'name'=>$competence,
             ]);
-        }
-
-        foreach($request->experiences as $experience){
-            $user->experiences()->create([
-                'poste'=>$experience['poste'],
-                'entreprise'=>$experience['entreprise'],
-                'duree'=>$experience['duree'],
-            ]);
-
             }
+        }
+        // experience
+        foreach($request->experiences as $experience){
+            if (isset($experience['id'])) {
+                $user->experiences()->where('id',$experience['id'])->update([
+                    'poste'=>$experience['poste'],
+                    'entreprise'=>$experience['entreprise'],
+                    'duree'=>$experience['duree'],
+                ]);
+            }else{
+                $user->experiences()->create([
+                    'poste'=>$experience['poste'],
+                    'entreprise'=>$experience['entreprise'],
+                    'duree'=>$experience['duree'],
+                ]); 
+                }
+            }
+        // formation
         foreach ($request->formations as $form) {
-            $user->formations()->create([
-                'diplome' => $form['diplome'],
-                'ecole' => $form['ecole'],
-                'annee' => $form['annee'],
-            ]);
+            if (isset($form['id'])) {
+                $user->formations()->where('id',$form['id'])->update([
+                    'diplome' => $form['diplome'],
+                    'ecole' => $form['ecole'],
+                    'annee' => $form['annee'],
+                ]);
+            }else{
+                $user->formations()->create([
+                    'diplome' => $form['diplome'],
+                    'ecole' => $form['ecole'],
+                    'annee' => $form['annee'],
+                ]);
+                }
         }
         // return redirect('profil');
 
@@ -95,7 +121,10 @@ class ChercheurController extends Controller
     }
 
 
-    // public function postulerOffre(){}
+    // public function postulerOffre(){
+    //     $user = auth()->user();
+    //     $offre=Offre::find($offre_id)
+    // }
 
 
 }

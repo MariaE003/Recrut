@@ -10,19 +10,28 @@ class RecruteurController extends Controller
     //
 
     public function createOffre(Request $request){
-        Offre::create([
+        $user=auth()->user();
+        $img= $request->file('photo')->store('offres', 'public');
+        $user->createurOffres()->create([
             'entrepriseName'=>$request->entrepriseName,
             'typeContrat'=>$request->typeContrat,
             'titre'=>$request->titre,
             'description'=>$request->description,
-            'photo'=>$request->photo,
-            'cloture'=>$request->cloture,
-            // 'user_id'=>
+            'photo'=>$img,
+            'cloturer'=>0,
+            'user_id'=>$user->id,
         ]);
-    }
-    // public function cloturerOffre(){
+        return redirect()->route('offres');
+            // dd($request->all());
 
+    }
+
+    // public function cloturerOffre(Request $request){
+    //     Offre::where('id',$request->id)->update([
+    //         'cloture'=>true,
+    //     ]);
     // }
+
     // public function consulterCandidature(){
 
     // }

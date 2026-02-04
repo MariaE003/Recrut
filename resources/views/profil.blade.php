@@ -66,11 +66,11 @@
                             </div>
                             <div id="skillsList" class="flex flex-wrap gap-2 min-h-[40px] p-4 bg-slate-50 rounded-[1.5rem] border border-dashed border-slate-200">
                                 @if($comp)
-                                    @foreach($comp as $c)
+                                    @foreach($comp as $com)
                                         <div class="bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100 flex items-center gap-2 text-xs font-semibold text-slate-700">
-                                            <span>{{ $c->name }}</span>
+                                            <span>{{ $com->name }}</span>
                                             <button type="button" class="removeSkill text-slate-400 hover:text-rose-500"><i class="fas fa-times"></i></button>
-                                            <input type="hidden" name="competences[]" value="{{ $c->name }}">
+                                            <input type="hidden" name="competences[]" value="{{ $com->name }}">
                                         </div>
                                     @endforeach
                                 @endif
@@ -89,6 +89,7 @@
                                 @if($exper)
                                     @foreach($exper as $exp)
                                         <div class="p-6 rounded-[2rem] bg-slate-50/50 border border-slate-100 relative group animate-fadeIn">
+                                            <input type="hidden" name="experiences[{{$loop->index}}][id]" value="{{ $exp->id }}">
                                             <button type="button" class="removeExperience absolute top-4 right-4 text-slate-300 hover:text-rose-500 transition"><i class="fas fa-trash-alt"></i></button>
                                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                                 <div class="space-y-1">
@@ -122,6 +123,8 @@
                                 @if($form)
                                     @foreach($form as $forma)
                                         <div class="p-6 rounded-[2rem] bg-slate-50/50 border border-slate-100 relative group animate-fadeIn">
+                                            <input type="hidden" name="formations[{{$loop->index}}][id]" value="{{ $forma->id }}">
+
                                             <button type="button" class="removeFormation absolute top-4 right-4 text-slate-300 hover:text-rose-500 transition"><i class="fas fa-trash-alt"></i></button>
                                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                                 <div class="space-y-1">
