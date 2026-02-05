@@ -5,14 +5,7 @@
     <div class="max-w-[1440px] mx-auto px-6 py-8">
         <div class="flex flex-col lg:flex-row gap-8">
 
-            <!-- COLONNE CENTRALE : Flux de profils -->
             <div class="flex-1 space-y-8">
-                <!-- Filtres style "Tabs" de l'image -->
-                <!-- <div class="bg-white p-2 rounded-[2rem] shadow-sm flex gap-2">
-                    <button class="flex-1 py-4 px-2 text-center text-sm font-bold text-slate-500 hover:bg-slate-50 rounded-[1.5rem] transition-all">52,844 Followers</button>
-                    <button class="flex-1 py-4 px-2 text-center text-sm font-bold bg-indigo-600 text-white shadow-lg shadow-indigo-100 rounded-[1.5rem] transition-all">2,564 Following</button>
-                    <button class="flex-1 py-4 px-2 text-center text-sm font-bold text-slate-500 hover:bg-slate-50 rounded-[1.5rem] transition-all">Suggestions</button>
-                </div> -->
                 <form method="GET" action="{{route('home')}}" class="relative mb-6">
                     <span class="absolute inset-y-0 left-4 flex items-center text-slate-400">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,15 +44,7 @@
                                     {{ $user->specialite }}
                                 </p>
 
-                                <!-- Social icons -->
-                                <!-- <div class="flex gap-2 mt-2 text-slate-400">
-                                <p>
-                                    <svg width="14px" height="14px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.36328 12.0523C4.01081 11.5711 3.33457 11.3304 3.13309 10.9655C2.95849 10.6492 2.95032 10.2673 3.11124 9.94388C3.29694 9.57063 3.96228 9.30132 5.29295 8.76272L17.8356 3.68594C19.1461 3.15547 19.8014 2.89024 20.2154 3.02623C20.5747 3.14427 20.8565 3.42608 20.9746 3.7854C21.1106 4.19937 20.8453 4.85465 20.3149 6.16521L15.2381 18.7078C14.6995 20.0385 14.4302 20.7039 14.0569 20.8896C13.7335 21.0505 13.3516 21.0423 13.0353 20.8677C12.6704 20.6662 12.4297 19.99 11.9485 18.6375L10.4751 14.4967C10.3815 14.2336 10.3347 14.102 10.2582 13.9922C10.1905 13.8948 10.106 13.8103 10.0086 13.7426C9.89876 13.6661 9.76719 13.6193 9.50407 13.5257L5.36328 12.0523Z" stroke="#000" stroke-width="0.984" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    {{$user->lieu}}
-                                </p>
-                                </div> -->
+                            
                                 <div class="flex items-center gap-3 text-slate-600">
                                     <i class="fas fa-map-marker-alt text-rose-500 text-xs"></i>
                                     <span class="text-xs font-semibold">{{ $user->lieu }}</span>

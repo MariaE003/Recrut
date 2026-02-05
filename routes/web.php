@@ -41,6 +41,7 @@ Route::get('chercherOffre/',[ChercheurController::class,'chercheOffre']);
 Route::get('offrePage',function(){
     return view('createoffre');
 })->name('offresPage');
+
 Route::post('offre-create',[RecruteurController::class,'createOffre'])->name('create.offre');
 // affiche offre
 Route::get('offres-view',[OffreController::class,'affichierOffres'])->name('offres');

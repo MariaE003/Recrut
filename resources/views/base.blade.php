@@ -12,6 +12,7 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); }
     </style>
+     @livewireStyles
 </head>
 <body class="bg-[#F8FAFC] antialiased">
 
@@ -78,6 +79,8 @@
 <footer class="text-center py-10">
     <p class="text-slate-400 text-sm font-medium">© 2026 Talentia Inc. — <span class="text-slate-900">Designed for Excellence.</span></p>
 </footer>
+
+ @livewireScripts
 
 </body>
 </html>
