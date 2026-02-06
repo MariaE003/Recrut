@@ -47,6 +47,9 @@ Route::post('offre-create',[RecruteurController::class,'createOffre'])->name('cr
 Route::get('offres-view',[OffreController::class,'affichierOffres'])->name('offres');
 
 
+Route::get('poustule/{idOffre}',[ChercheurController::class,'postulerOffre'])->name('poustule');
+
+
 
 
 

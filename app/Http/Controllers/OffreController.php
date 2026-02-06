@@ -9,7 +9,20 @@ class OffreController extends Controller
     //
     public function affichierOffres(Request $request){
 
-        $offres=Offre::where('cloturer',false)->get();
+        // $offres=Offre::where('cloturer',false)->whereDoesntHave('postulant', function ($q) {
+        //     $q->where('user_id', auth()->id());
+        // })->get();
+
+        $offres=Offre::with('postulant')->get();
+        // dd($offres);
+        $offres->map(function($off){
+            $off->isApplied=$off->postulant->contains('id',auth()->id());
+            $off->iscloture=(bool)$off->cloturer;   
+            // dd($off->isApplied);     
+            return $off;
+            // dd($off);
+        });
+
 
         $offre=null;
 
