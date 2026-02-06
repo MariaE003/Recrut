@@ -14,14 +14,15 @@ class OffreController extends Controller
         $offre=null;
 
         if ($request->offre) {
-            $offre=Offre::where('titre',$request->offre);
+            $offre=Offre::where('titre',$request->offre)->get();
         }
         return view('affichierOffre', compact('offres','offre'));
 
     }
     
-    public function detaillOffre($id){
-        $offre=Offre::where('id',$id);
+    public function detailOffre($id){
+        $offre=Offre::find($id);
+        // dd($offre);
         return view('detailoffre',compact('offre'));
     }
 
