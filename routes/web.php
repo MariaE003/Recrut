@@ -32,7 +32,7 @@ Route::get('/profil',[ChercheurController::class,'getName'])->name('profil');
 Route::post('/chercheur',[ChercheurController::class,'createProfil'])->name('create.profile');
 
 //offre
-Route::get('/detailoffre/{}',[ChercheurController::class,'detaillOffre']);
+Route::get('/detailoffre/{id}',[OffreController::class,'detaillOffre']);
 // Route::post('postuler',[ChercheurController::class,'postulerOffre']);
 Route::get('chercherOffre/',[ChercheurController::class,'chercheOffre']);
 

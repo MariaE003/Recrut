@@ -42,21 +42,22 @@ class AmisController extends Controller
         return view('detail',compact('ami'));
     }
 
-    // public function AjouterAmis($receiver){
-    //     Amis::create([
-    //         'sender_id'=> Auth::id(),
-    //         'receiver_id'=>$receiver,
-    //         'status'=>'en_attente',
-    //     ]);
-    //     return back();
-    // }
-    // public function accepterAmis(Request $request,$id){
-    //     Amis::where('id',$id)->update(['status'=>'accepter']);
-    //     return redirect('/');
-    //     // return redirect()->route('nameRoute');
-    // }
-    // public function refuseAmis($id){
-    //     Amis::where('id',$id)->update(['status'=>'refuse']);
-    //     return redirect('/');
-    // }
+    public function AjouterAmis($receiver){
+        Amis::create([
+            'sender_id'=> Auth::id(),
+            'receiver_id'=>$receiver,
+            'status'=>'en_attente',
+        ]);
+        return redirect()->back()->with('success','invitation envoyer');
+    }
+    public function accepterAmis(Request $request){
+
+        Amis::where('receiver_id',Auth::id)->where('sender_id',$request->idSender)->update(['status'=>'accepter']);
+
+        return redirect()->back()->with('success','invitation accepter');
+        }
+        public function refuseAmis($id){
+            Amis::where('receiver_id',Auth::id)->where('sender_id',$request->idSender)->update(['status'=>'refuse']);
+            return redirect()->back()->with('success','invitation refuse');
+    }
 }

@@ -20,9 +20,9 @@ class OffreController extends Controller
 
     }
     
-    // public function detaillOffre($id){
-    //     $offre=Offre::where('id',$id);
-    //     return view('detail-offre',compact('offre'));
-    // }
+    public function detaillOffre($id){
+        $offre=Offre::where('id',$id);
+        return view('detailoffre',compact('offre'));
+    }
 
 }
