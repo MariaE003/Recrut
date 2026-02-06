@@ -99,10 +99,23 @@
                     Cette offre vous intéresse ?
                 </h3>
 
-                <button
+                <!-- <button
                     class="w-full py-3 bg-indigo-600 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 transition">
                     Postuler maintenant
+                </button> -->
+                @if($offre->isApplied)
+                <button disabled  class="w-full py-3 bg-green-500 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 transition  ">
+                    Deja Postuler
                 </button>
+                @elseif($offre->iscloture)
+                    <button disabled  class="w-full py-3 bg-red-300 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 transition">
+                        Cloturer
+                    </button>
+                @else
+                    <a href="poustuledetail/{{$offre->id}}" style="padding: 12px 39%;" class="w-full py-3 bg-indigo-600 text-white rounded-xl text-sm font-bold hover:bg-indigo-700 transition">
+                        Postuler
+                    </a>
+                @endif
 
                 <hr class="my-6 border-slate-100">
 

@@ -54,7 +54,7 @@
 
                         <!-- Actions -->
                         <div class="flex gap-2">
-                            <a href="{{ route('detail', $user->id) }}" 
+                            <a href="{{route('detail',$user->id)}}" 
                             class="flex-1 py-2 bg-slate-100 text-slate-600 rounded-lg 
                                     text-xs font-semibold hover:bg-slate-200 transition text-center">
                                 Detail
@@ -62,11 +62,11 @@
 
                             <!-- <form action="" method="POST" class="flex-1">
                                 @csrf -->
-                                <button type="submit" 
-                                        class="w-1/3 py-2 bg-indigo-600 text-white rounded-lg 
+                                <!-- <a href="{{route(ajouterAmis,$user->id)}}"
+                                        class="text-center w-1/3 py-2 bg-indigo-600 text-white rounded-lg 
                                             text-xs font-semibold hover:bg-indigo-700 transition">
                                     Suivre
-                                </button>
+                                </a> -->
                             <!-- </form> -->
 
                             <a href="" 

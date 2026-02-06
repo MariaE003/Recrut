@@ -21,6 +21,7 @@ class AmisController extends Controller
             // ->orWhere('specialite',$request->search)
             ->get();
         }
+        
         return view('home',compact('user','amis'));        
         } 
     }

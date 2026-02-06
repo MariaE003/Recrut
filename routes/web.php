@@ -50,7 +50,7 @@ Route::get('offres-view',[OffreController::class,'affichierOffres'])->name('offr
 Route::get('poustule/{idOffre}',[ChercheurController::class,'postulerOffre'])->name('poustule');
 
 
-
+Route::post('/ajouterAmis/{id}',[AmisController::class,'AjouterAmis'])->name('ajouterAmis');
 
 
 
